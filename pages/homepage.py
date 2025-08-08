@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("My GitHub Portfolio - Proof of Concept")
+st.title("My GitHub Portfolio ")
 
 # Static example project data
 projects = [
