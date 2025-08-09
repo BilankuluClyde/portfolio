@@ -15,6 +15,16 @@ projects = [
         "description": "An awesome web app.",
         "language": "JavaScript",
         "url": "https://github.com/yourusername/project-beta"
+    },
+    {
+        "name": "Valentine Message",
+        "description": "A playful, interactive web app that asks "
+        "the user to be a valentine. The 'No' button cleverly evades "
+        "the cursor, creating a fun and persistent user experience "
+        "that leaves only one option: 'Yes' ❤️. "
+        "\nBuilt with HTML, CSS, and JavaScript.",
+        "language": "JavaScript",
+        "url": "https://bilankuluclyde.github.io/"
     }
 ]
 
