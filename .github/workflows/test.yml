@@ -1,0 +1,30 @@
+name: Run Python Tests
+
+on:
+  workflow_call:  # 👈 Makes it reusable by other workflows
+    inputs:
+      python-version:
+        required: false
+        type: string
+        default: "3.10"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout repo to get code and tests
+      - uses: actions/checkout@v4
+
+      # Set up Python
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python-version }}
+
+      # Install dependencies
+      - run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      # Run tests
+      - run: |
+          pytest --maxfail=1 --disable-warnings -q

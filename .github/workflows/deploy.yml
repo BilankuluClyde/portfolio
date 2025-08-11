@@ -1,0 +1,71 @@
+name: Deploy Project Metadata to GCP
+
+# Controls when the action will run.
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+
+jobs:
+
+    # Step 1: Run tests from reusable workflow
+    test:
+        uses: ./.github/workflows/test.yml # 👈 Call test.yml
+        with:
+            python-version: "3.10"
+
+    # step 2: Deply only if tests pass
+    deploy:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            # 1. Checkout repo code - Provide the VM with the code needed to perform required tasks on
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            # ## [Update] We no longer want to expose the cloud function endpoint, we want to use Pub/Sub
+            # # Notify the cloud function
+            # - name: Notify Google Cloud Function
+            #   env:
+            #     GCF_ENDPOINT: ${{ secrets.GCF_ENDPOINT }}
+            #     GITHUB_REPO: ${{ github.repository }}
+            #     COMMIT_SHA: ${{ github.sha }}
+            #   run: |
+            #     echo "Notifying Google Cloud Function..."
+            #     curl -X POST "$GCF_ENDPOINT" \ 
+            #     -H "Content-Type: application/json" \
+            #     -d "{
+            #     \"repository\": \"$GITHUB_REPO\",
+            #     \"commit\": \"$COMMIT_SHA\"
+            #     }"
+
+            - name: Set up gcloud auth (use service account key)
+              uses: google-github-actions/auth@v1
+              with:
+                credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+            - name: Set up gcloud CLI
+              uses: google-github-actions/setup-gcloud@v1
+              with:
+                project_id: ${{ secrets.GCP_PROJECT }}
+                install_components: 'pubsub'
+
+            - name: Publish message to Pub/Sub topic
+              env:
+                GCP_PROJECT: ${{ secrets.GCP_PROJECT }}
+                PUBSUB_TOPIC: ${{ secrets.PUBSUB_TOPIC }}
+                GITHUB_REPO: ${{ github.repository }}
+                COMMIT_SHA: ${{ github.sha }}
+              run: |
+                # Create JSON payload
+                PAYLOAD=$(jq -n --arg repo "$GITHUB_REPO" --arg sha "$COMMIT_SHA" \
+                  '{repository: $repo, commit: $sha}')
+                echo "Publishing payload: $PAYLOAD"
+
+                # Publish the payload (encoded automatically)
+                gcloud pubsub topics publish "$PUBSUB_TOPIC" \
+                  --project="$GCP_PROJECT" \
+                  --message="$PAYLOAD"
