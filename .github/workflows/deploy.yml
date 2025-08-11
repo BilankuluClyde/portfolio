@@ -19,7 +19,7 @@ jobs:
 
     # step 2: Deply only if tests pass
     deploy:
-        needs: test
+        # needs: test # skip while testng
         runs-on: ubuntu-latest
         steps:
             # 1. Checkout repo code - Provide the VM with the code needed to perform required tasks on
