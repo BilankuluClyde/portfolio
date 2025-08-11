@@ -51,7 +51,6 @@ jobs:
               uses: google-github-actions/setup-gcloud@v1
               with:
                 project_id: ${{ secrets.GCP_PROJECT }}
-                install_components: 'pubsub'
 
             - name: Publish message to Pub/Sub topic
               env:
