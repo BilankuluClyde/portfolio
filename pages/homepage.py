@@ -9,12 +9,12 @@ st.markdown(
     """
     <h1 style="display: flex; align-items: center;">
         <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="40" style="margin-right:10px;">
-        GitHub Projects
+        GitHub Projects [Updates coming soon]
     </h1>
     """,
     unsafe_allow_html=True
 )
-# Static example project data
+# Static example project data 
 projects = [
     {
         "name": "Project Alpha",
