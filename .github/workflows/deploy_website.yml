@@ -32,11 +32,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      # Authenticate to Google Cloud
+      - uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY_JSON }}
+
       # Set up gcloud CLI
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@v2
         with:
           version: "390.0.0"
-          service_account_key: ${{ secrets.GCP_SA_KEY_JSON }}
           project_id: ${{ secrets.GCP_PROJECT_ID }}
 
       # Step 3: Authenticate Docker with GCR
