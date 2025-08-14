@@ -14,7 +14,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-# Static example project data 
+# Static example project data  will update
 projects = [
     {
         "name": "Project Alpha",
