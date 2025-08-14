@@ -1,20 +1,32 @@
 import streamlit as st
 
-st.title("My GitHub Portfolio ")
-
+st.set_page_config(
+    page_title="Clyde's Portfolio Dashboard",  # Browser tab title
+    page_icon="🖥️"  # Optional: emoji or image
+)
+# st.title("My GitHub Portfolio ")
+st.markdown(
+    """
+    <h1 style="display: flex; align-items: center;">
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="40" style="margin-right:10px;">
+        GitHub Projects
+    </h1>
+    """,
+    unsafe_allow_html=True
+)
 # Static example project data
 projects = [
     {
         "name": "Project Alpha",
         "description": "A cool project about AI.",
         "language": "Python",
-        "url": "https://github.com/yourusername/project-alpha"
+        "url": "https://github.com/BilankuluClyde/content_calendar"
     },
     {
         "name": "Project Beta",
         "description": "An awesome web app.",
         "language": "JavaScript",
-        "url": "https://github.com/yourusername/project-beta"
+        "url": "https://github.com/BilankuluClyde/weather_in_my_area"
     },
     {
         "name": "Valentine Message",
