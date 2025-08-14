@@ -1,0 +1,60 @@
+name: Deploy to Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'pages/**'
+      - 'Data_Layer/**'
+      - 'Business_Logic_Layer/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'pages/**'
+      - 'Data_Layer/**'
+      - 'Business_Logic_Layer/**'
+env:
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  RUN_REGION: africa-south1
+  SA_KEY_JSON: ${{ secrets.GCP_SA_KEY_JSON }}
+  SERVICE_NAME: portfolio-website
+  IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/portfolio-website  # Change as needed
+
+jobs:
+  deploy:
+    name: Deploy to Cloud Run
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'push' && github.event.head_commit.message == 'Deploy to cloud run' ||
+      github.event_name == 'pull_request' && github.event.pull_request.title == 'Deploy to cloud run'
+    steps:
+      - uses: actions/checkout@v2
+
+      # Set up gcloud CLI
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: "390.0.0"
+          service_account_key: ${{ secrets.GCP_SA_KEY_JSON }}
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+      # Step 3: Authenticate Docker with GCR
+      - name: Configure Docker to use gcloud as a credential helper
+        run: gcloud auth configure-docker
+
+      # Step 4: Build Docker image with Cloud Build and push to GCR
+      - name: Build and Push Docker image via Cloud Build
+        run: |
+          gcloud builds submit --tag $IMAGE_NAME .
+
+      # Step 5: Deploy Cloud Run service using the pushed image
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy $SERVICE_NAME \
+            --image $IMAGE_NAME \
+            --platform managed \
+            --project=$PROJECT_ID \
+            --allow-unauthenticated \
+            --region $RUN_REGION
+            
