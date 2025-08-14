@@ -40,7 +40,6 @@ jobs:
       # Set up gcloud CLI
       - uses: google-github-actions/setup-gcloud@v2
         with:
-          version: "390.0.0"
           project_id: ${{ secrets.GCP_PROJECT_ID }}
 
       # Step 3: Authenticate Docker with GCR
