@@ -1,0 +1,7 @@
+Github repo table
+1. Repo ID
+2. Repo Name
+
+
+Languages
+1. Name

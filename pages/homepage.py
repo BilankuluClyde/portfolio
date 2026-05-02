@@ -1,44 +1,37 @@
 import streamlit as st
+import pandas as pd
+
+from navBar import next_page
 
 st.set_page_config(
     page_title="Clyde's Portfolio Dashboard",  # Browser tab title
     page_icon="🖥️"  # Optional: emoji or image
 )
-# st.title("My GitHub Portfolio ")
+
 st.markdown(
     """
     <h1 style="display: flex; align-items: center;">
         <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="40" style="margin-right:10px;">
-        GitHub Projects [Updates coming soon]
+        GitHub Projects
     </h1>
     """,
     unsafe_allow_html=True
 )
-# Static example project data  will update 
-projects = [
-    {
-        "name": "Project Alpha",
-        "description": "A cool project about AI.",
-        "language": "Python",
-        "url": "https://github.com/BilankuluClyde/content_calendar"
-    },
-    {
-        "name": "Project Beta",
-        "description": "An awesome web app.",
-        "language": "JavaScript",
-        "url": "https://github.com/BilankuluClyde/weather_in_my_area"
-    },
-    {
-        "name": "Valentine Message",
-        "description": "A playful, interactive web app that asks "
-        "the user to be a valentine. The 'No' button cleverly evades "
-        "the cursor, creating a fun and persistent user experience "
-        "that leaves only one option: 'Yes' ❤️. "
-        "\nBuilt with HTML, CSS, and JavaScript.",
-        "language": "JavaScript",
-        "url": "https://bilankuluclyde.github.io/"
-    }
-]
+
+# Setup a hello message, Giving a brief bio about me and what i can do
+
+st.write("""
+         Hi there 🙋‍♂️, welcome to my ...
+
+         """)
+st.divider()
+
+
+st.header("Github Repos")
+st.button("Projects", on_click=next_page("projects"))
+
+# Dynamically get a list of my top 5 recommended projects from BQ Table 
+projects = pd.DataFrame().
 
 for proj in projects:
     st.subheader(proj["name"])
@@ -46,3 +39,7 @@ for proj in projects:
     st.write(f"**Language:** {proj['language']}")
     st.markdown(f"[View on GitHub]({proj['url']})")
     st.markdown("---")
+
+# show each project as a separate card 
+# listing its name, Language, description, and link to Github
+# For executable app, link their CR links
