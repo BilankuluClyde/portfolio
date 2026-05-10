@@ -6,3 +6,4 @@ st.navigation( "")
 
 def next_page():
     # Function to changes pages 
+    return
