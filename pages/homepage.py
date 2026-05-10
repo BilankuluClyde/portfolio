@@ -1,4 +1,4 @@
-import pages.path_setup as path_setup
+import path_setup as path_setup
 import streamlit as st
 
 st.set_page_config(
