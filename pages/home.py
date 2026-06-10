@@ -88,9 +88,10 @@ hr { border-color: #1e1e1e !important; }
 .stButton > button {
     background: transparent;
     border: 1px solid #c8b97a;
-    color: #c8b97a;
+    color: white !important;
+    text-decoration: none !important;
     font-family: 'Space Mono', monospace;
-    font-size: 0.8rem;
+    font-size: 20.8rem;
     letter-spacing: 2px;
     padding: 0.6rem 1.8rem;
     border-radius: 100px;
@@ -106,9 +107,9 @@ hr { border-color: #1e1e1e !important; }
 # ── Hero ─────────────────────────────────────────────────────────────────────
 col1, col2 = st.columns([2, 1], gap="large")
 with col1:
-    st.markdown('<p class="section-label">👋 Welcome</p>', unsafe_allow_html=True)
-    st.markdown('<p class="hero-name">Clyde.</p>', unsafe_allow_html=True)
-    st.markdown('<p class="hero-sub">Software Engineer & Builder</p>', unsafe_allow_html=True)
+    st.markdown('<p class="section-label">Clyde\'s Github Portfolio</p>', unsafe_allow_html=True)
+    st.markdown('<p class="hero-name">Welcome</p>', unsafe_allow_html=True)
+    st.markdown('<p class="hero-sub">Software Engineer | Data Engineer | BI Developer </p>', unsafe_allow_html=True)
     st.markdown("""
         <p class="hero-bio">
             I build data pipelines, dashboards, and automation systems that turn
@@ -117,22 +118,22 @@ with col1:
     """, unsafe_allow_html=True)
 
     # Tech tags
-    tags = ["Python", "SQL", "BigQuery", "Streamlit", "GCP", "dbt", "Git"]
+    tags = ["Python", "SQL", "Java", "C#", "Google Cloud Platforms", "Azure", "Streamlit", "dbt", "Git"]
     tag_html = "".join(f'<span class="tag-pill">{t}</span>' for t in tags)
     st.markdown(f'<div style="margin-top:1.5rem">{tag_html}</div>', unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
     c1, c2, c3 = st.columns(3)
     with c1:
-        st.link_button("GitHub ↗", "https://github.com/YOUR_USERNAME", use_container_width=True)
+        st.link_button("GitHub ↗", "https://github.com/BilankuluClyde/", use_container_width=True)
     with c2:
-        st.link_button("LinkedIn ↗", "https://linkedin.com/in/YOUR_PROFILE", use_container_width=True)
+        st.link_button("LinkedIn ↗", "https://www.linkedin.com/in/mpfuno-clyde-bilankulu/", use_container_width=True)
 
 with col2:
     # Stats panel
     st.markdown('<div class="stat-box"><div class="stat-num">12+</div><div class="stat-label">Projects Shipped</div></div>', unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown('<div class="stat-box"><div class="stat-num">3</div><div class="stat-label">Years Experience</div></div>', unsafe_allow_html=True)
+    st.markdown('<div class="stat-box"><div class="stat-num">3</div><div class="stat-label">Years of Experience</div></div>', unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown('<div class="stat-box"><div class="stat-num">∞</div><div class="stat-label">Problems to Solve</div></div>', unsafe_allow_html=True)
 
@@ -146,30 +147,35 @@ st.markdown("### What would you like to see?")
 c1, c2, c3 = st.columns(3)
 with c1:
     st.markdown("""
-    <div class="stat-box" style="text-align:left; padding:2rem;">
-        <div style="font-size:2rem">📁</div>
-        <div style="font-weight:700; margin:.5rem 0">Projects</div>
-        <div style="color:#666; font-size:.9rem">Browse my open-source repos and case studies.</div>
-    </div>
+        <a href="pages/Projects.py" class="stButton" target="_self"  style="text-decoration:none;">
+            <div class="stat-box stButton" style="text-align:left; padding:2rem;">
+            <div style="font-size:2rem">📁</div>
+            <div style="font-weight:700; margin:.5rem 0">Projects</div>
+            <div style="color:#666; font-size:.9rem">Browse my open-source repos and case studies.</div>
+            </div>
+        </a>
     """, unsafe_allow_html=True)
 
 with c2:
     st.markdown("""
-    <div class="stat-box" style="text-align:left; padding:2rem;">
-        <div style="font-size:2rem">👤</div>
-        <div style="font-weight:700; margin:.5rem 0">About</div>
-        <div style="color:#666; font-size:.9rem">My background, skills, and what drives me.</div>
-    </div>
+    <a href="/About" class="stButton" target="_self"  style="text-decoration:none;">
+        <div class="stat-box stButton" style="text-align:left; padding:2rem;">
+            <div style="font-size:2rem">👤</div>
+            <div style="font-weight:700; margin:.5rem 0">About</div>
+            <div style="color:#666; font-size:.9rem">My background, skills, and what drives me.</div>
+        </div>
+    </a>
     """, unsafe_allow_html=True)
 
 with c3:
     st.markdown("""
-    <div class="stat-box" style="text-align:left; padding:2rem;">
-        <div style="font-size:2rem">📄</div>
-        <div style="font-weight:700; margin:.5rem 0">Resume</div>
-        <div style="color:#666; font-size:.9rem">Download my CV or view it inline.</div>
-    </div>
+    <a href="/Resume" class="stButton" target="_self"  style="text-decoration:none;">
+        <div class="stat-box" style="text-align:left; padding:2rem;">
+            <div style="font-size:2rem">📄</div>
+            <div style="font-weight:700; margin:.5rem 0">Resume</div>
+            <div style="color:#666; font-size:.9rem">Download my CV or view it inline.</div>
+        </div>
+    </a>
     """, unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
-st.markdown('<p style="font-family:\'Space Mono\',monospace; font-size:0.7rem; color:#333; text-align:center;">Use the sidebar to navigate ← </p>', unsafe_allow_html=True)

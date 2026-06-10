@@ -8,9 +8,9 @@ st.set_page_config(
 )
 
 home     = st.Page("home.py",     title="Home",     icon="🏠", default=True)
-projects = st.Page("Projects.py", title="Projects", icon="📁")
-about    = st.Page("About.py",    title="About",    icon="👤")
-resume   = st.Page("Resume.py",   title="Resume",   icon="📄")
+projects = st.Page("projects.py", title="Projects", icon="📁")
+about    = st.Page("about.py",    title="About",    icon="👤")
+resume   = st.Page("resume.py",   title="Resume",   icon="📄")
 
 pg = st.navigation([home, projects, about, resume])
 pg.run()
