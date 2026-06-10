@@ -13,7 +13,6 @@ html, body, [class*="css"] { font-family: 'Syne', sans-serif; background-color: 
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<p class="section-label">Who I am</p>', unsafe_allow_html=True)
 st.markdown("# About Me")
 
 st.markdown("<br>", unsafe_allow_html=True)
@@ -22,82 +21,141 @@ col1, col2 = st.columns([1.5, 1], gap="large")
 
 with col1:
     st.markdown("""
-    I'm a software engineer and data enthusiast based in **Cape Town, South Africa**.
-    I specialise in building end-to-end data solutions — from ingestion pipelines and
-    warehouse modelling, to dashboards and automation tools that save people hours every week.
+    I'm a **Data Engineer and Business Intelligence Developer** based in **Cape Town, South Africa** with over two years of experience designing and building cloud-based data solutions.
 
-    My background spans backend Python development, cloud data infrastructure on GCP,
-    and a healthy obsession with clean, well-documented code. I believe the best systems
-    are the ones nobody notices because they just *work*.
+    My experience spans **data engineering, business intelligence, cloud migrations, analytics, and business analysis**. I've worked with technologies such as **Snowflake, Google Cloud Platform (GCP), BigQuery, Power BI, Looker Studio, Python, SQL, and Azure DevOps** to deliver scalable data platforms, ETL pipelines, reporting solutions, and analytics products.
 
-    I'm currently open to **freelance projects** and **full-time opportunities** — feel free
-    to reach out on LinkedIn or via email.
+    Currently, I'm helping lead an enterprise data warehouse migration to Snowflake at PSG Asset Management. Previously at Incubeta, I delivered cloud migration projects, built real-time analytics pipelines, developed business intelligence dashboards, and partnered with stakeholders to translate business requirements into technical solutions.
+
+    Beyond my professional work, I enjoy building personal projects that combine software engineering, cloud computing, and data analytics, including cloud-native applications, automation tools, and portfolio projects deployed on Google Cloud Platform.
+
+    I'm always interested in opportunities involving **Data Engineering, Business Intelligence, Business Analysis, Cloud Engineering, and Software Development**.
     """)
 
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown('<p class="section-label">Education</p>', unsafe_allow_html=True)
+
+    st.markdown(
+        '<p class="section-label">Education & Certifications</p>',
+        unsafe_allow_html=True
+    )
+
     st.markdown("""
-    - 🎓 **BSc Computer Science** — University of Cape Town *(or your degree)*
-    - 📜 **Google Data Analytics Certificate**
-    - 📜 **dbt Fundamentals**
+    - 🎓 **BCom Information Systems & Computer Science** — University of Cape Town
+    - 🎓 **BSc Mathematics & Statistics** *(In Progress)* — University of South Africa
+    - 📊 **Microsoft Certified: Power BI Data Analyst Associate**
+    - 🏆 **1st Place - IITPSA SIGCyber Challenge**
+    - 🏆 **Young Economist of the Year Finalist**
     """)
 
 with col2:
-    st.markdown('<p class="section-label">Contact</p>', unsafe_allow_html=True)
+    st.markdown(
+        '<p class="section-label">Contact</p>',
+        unsafe_allow_html=True
+    )
+
     st.markdown("""
-    <div style="font-family:'Space Mono',monospace; font-size:0.85rem; line-height:2.2; color:#888;">
-    📧 your.email@example.com<br>
+    <div style="font-family:'Space Mono',monospace; font-size:0.9rem; line-height:2.2; color:#888;">
+    
+    📧 clydebilam@gmail.com<br>
+
+    📱 +27 69 319 0696<br>
+
     🌍 Cape Town, South Africa<br>
-    💼 Open to work
+
+    💼 Open to Data Engineering, BI, BA & Software Engineering Opportunities<br>
+
+    🔗 <a href="https://www.linkedin.com/in/mpfuno-clyde-bilankulu" target="_blank">
+    LinkedIn
+    </a><br>
+
+    🖥️ <a href="https://github.com/BilankuluClyde" target="_blank">
+    GitHub
+    </a><br>
+
+    🚀 <a href="https://mpfuno-clyde-bilankulu.app" target="_blank">
+    Portfolio Website
+    </a>
+
     </div>
     """, unsafe_allow_html=True)
-
-st.markdown("<br>")
 st.divider()
 
 # ── Skills ────────────────────────────────────────────────────────────────────
 st.markdown('<p class="section-label">Skills</p>', unsafe_allow_html=True)
-st.markdown("### Technical Stack")
+st.markdown("### Technical Expertise")
 st.markdown("<br>", unsafe_allow_html=True)
 
 skills = {
+    "SQL": 95,
     "Python": 90,
-    "SQL / BigQuery": 85,
-    "Google Cloud Platform": 75,
+    "Power BI": 90,
+    "Google BigQuery": 90,
+    "Google Cloud Platform": 85,
+    "Snowflake": 85,
+    "Looker Studio": 85,
+    "Data Warehousing": 85,
+    "ETL / ELT": 85,
+    "Azure DevOps": 80,
+    "Git & CI/CD": 80,
+    "Business Analysis": 80,
     "Streamlit": 80,
-    "dbt": 65,
-    "Git & CI/CD": 70,
+    "Google Analytics 4": 75,
+    "Google Tag Manager": 75,
+    "dbt": 70,
 }
 
 col1, col2 = st.columns(2)
+
 items = list(skills.items())
+
 for i, (skill, pct) in enumerate(items):
     col = col1 if i % 2 == 0 else col2
+
     with col:
         st.markdown(f"""
         <div style="display:flex; justify-content:space-between; font-size:0.9rem;">
             <span>{skill}</span>
             <span style="font-family:'Space Mono',monospace; color:#c8b97a; font-size:0.8rem;">{pct}%</span>
         </div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:{pct}%"></div></div>
+        <div class="skill-bar-bg">
+            <div class="skill-bar-fill" style="width:{pct}%"></div>
+        </div>
         """, unsafe_allow_html=True)
 
-st.markdown("<br>")
 st.divider()
 
-# ── Hobbies ───────────────────────────────────────────────────────────────────
+st.divider()
+
+# ── Beyond the Keyboard ──────────────────────────────────────────────────────
 st.markdown('<p class="section-label">Beyond the keyboard</p>', unsafe_allow_html=True)
-st.markdown("### Hobbies & Interests")
+st.markdown("### Interests & Passions")
 st.markdown("<br>", unsafe_allow_html=True)
 
 hobbies = [
-    ("🏄", "Surfing", "Cape Town has world-class waves — I'm out there when I can be."),
-    ("📚", "Reading", "Tech blogs, sci-fi, and the occasional business book."),
-    ("🎸", "Music", "Guitar player, mostly blues and rock."),
-    ("🤖", "Open Source", "Contributing to tools I use and building things for fun."),
+    (
+        "🚀",
+        "Building Side Projects",
+        "I enjoy turning ideas into working products, from cloud-native applications to data-driven tools."
+    ),
+    (
+        "📊",
+        "Data & Analytics",
+        "Exploring patterns, solving business problems, and finding insights hidden in data."
+    ),
+    (
+        "📚",
+        "Continuous Learning",
+        "Currently expanding my knowledge in cloud engineering, business analysis, and advanced data engineering."
+    ),
+    (
+        "🤝",
+        "Teaching & Mentorship",
+        "Former UCT tutor who enjoys helping others understand technology and grow their careers."
+    ),
 ]
 
 cols = st.columns(len(hobbies))
+
 for col, (icon, title, desc) in zip(cols, hobbies):
     with col:
         st.markdown(f"""
