@@ -25,9 +25,41 @@ with col2:
     # Replace with your actual CV file
     # with open("assets/CV_Clyde.pdf", "rb") as f:
     #     st.download_button("Download CV ↓", f, file_name="Clyde_CV.pdf", mime="application/pdf", use_container_width=True)
-    st.info("Upload your PDF to `assets/CV_Clyde.pdf` to enable the download button.")
+    #st.info("Upload your PDF to `assets/CV_Clyde.pdf` to enable the download button.")
+    with open("./assets/Mpfuno_Clyde_Bilankulu_CV.pdf", "rb") as pdf_file:
+        pdf_bytes = pdf_file.read()
 
-st.markdown("<br>")
+    st.download_button(
+        label="DOwnload My CV",
+        data=pdf_bytes,
+        file_name="Mpfuno_Clyde_Bilankulu_CV.pdf",
+        mime="application/pdf",
+        icon="📄",
+    )
+
+st.markdown("---")
+
+# ── Higlights ────────────────────────────────────────────────────────────────
+
+st.subheader("Key Highlights")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.info("🏗️ 2+ years in Data Engineering & BI")
+    st.info("❄️ Leading Snowflake Migration")
+    st.info("☁️ GCP & BigQuery Specialist")
+    st.info("📊 Microsoft Certified Power BI Analyst")
+
+with col2:
+    st.info("⚙️ ETL & Data Warehouse Development")
+    st.info("🚀 CI/CD, Docker & Cloud Run Deployments")
+    st.info("🤝 Requirements Gathering & Stakeholder Management")
+    st.info("💻 Python, SQL, Java & C# Development")
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+st.divider()
 
 # ── Experience ────────────────────────────────────────────────────────────────
 st.markdown('<p class="section-label">Experience</p>', unsafe_allow_html=True)
@@ -36,23 +68,52 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 experience = [
     {
-        "role": "Data Engineer",
-        "company": "Company Name",
-        "dates": "Jan 2023 – Present",
+        "role": "Junior Business Intelligence Developer",
+        "company": "PSG Asset Management",
+        "dates": "Nov 2025 – Present",
         "bullets": [
-            "Built and maintained BigQuery pipelines processing 10M+ rows daily.",
-            "Reduced report load times by 60% through query optimisation and materialised views.",
-            "Introduced dbt for SQL transformation layer, improving team collaboration.",
+            "Leading the end-to-end migration of the on-premises data warehouse to Snowflake.",
+            "Designing and developing scalable ETL pipelines for financial data migration and transformation.",
+            "Implementing data quality, governance, metadata, and lineage frameworks across cloud data infrastructure.",
+            "Developing SQL and scripting solutions to validate, transform, and optimize data workflows.",
+            "Managing sprint delivery, backlog refinement, and source control through Azure DevOps.",
+            "Applying data warehousing best practices and query performance optimization techniques.",
         ],
     },
     {
-        "role": "Junior Software Developer",
-        "company": "Previous Company",
-        "dates": "Jun 2021 – Dec 2022",
+        "role": "Junior Data Engineer",
+        "company": "Incubeta",
+        "dates": "Jan 2025 – Oct 2025",
         "bullets": [
-            "Developed Python automation scripts saving 15+ hours of manual work per week.",
-            "Maintained REST API integrations with third-party data providers.",
-            "Contributed to internal dashboards using Streamlit and Plotly.",
+            "Delivered multiple cloud migration projects from on-premises systems to Google Cloud Platform.",
+            "Designed and optimized BigQuery data warehouse schemas using dimensional modelling and star-schema techniques.",
+            "Built and maintained ETL pipelines supporting real-time marketing analytics and reporting solutions.",
+            "Developed business intelligence dashboards in Looker Studio and Power BI.",
+            "Gathered business requirements and translated stakeholder needs into technical specifications.",
+            "Implemented GA4 and GTM tracking solutions integrated with GCP data platforms.",
+            "Supported UAT, deployment, and post-release monitoring of analytics solutions.",
+        ],
+    },
+    {
+        "role": "Data & Analytics Intern",
+        "company": "Incubeta",
+        "dates": "Jan 2024 – Dec 2024",
+        "bullets": [
+            "Conducted requirements gathering workshops with business and technical stakeholders.",
+            "Implemented and tested analytics tracking using Google Analytics 4 and Google Tag Manager.",
+            "Created process documentation, data flow diagrams, and reporting specifications.",
+            "Performed QA testing and validation of dashboards and analytics solutions.",
+            "Presented insights and reports to internal teams and external clients.",
+        ],
+    },
+    {
+        "role": "Information Systems Tutor",
+        "company": "University of Cape Town",
+        "dates": "Jan 2023 – Dec 2023",
+        "bullets": [
+            "Tutored Commercial Programming and Systems Design & Development modules.",
+            "Mentored students in Java, software engineering principles, and systems analysis.",
+            "Provided academic support and facilitated practical problem-solving sessions.",
         ],
     },
 ]
@@ -76,9 +137,7 @@ st.markdown("### Qualifications")
 st.markdown("<br>", unsafe_allow_html=True)
 
 education = [
-    {"degree": "BSc Computer Science", "institution": "University of Cape Town", "year": "2021"},
-    {"degree": "Google Data Analytics Certificate", "institution": "Google / Coursera", "year": "2022"},
-    {"degree": "dbt Fundamentals", "institution": "dbt Labs", "year": "2023"},
+    {"degree": "BSc Computer Science", "institution": "University of Cape Town", "year": "2024"}
 ]
 
 for edu in education:
@@ -96,9 +155,7 @@ st.divider()
 st.markdown('<p class="section-label">Certifications</p>', unsafe_allow_html=True)
 cols = st.columns(3)
 certs = [
-    ("🏅", "Google Cloud Associate", "2023"),
-    ("🏅", "dbt Fundamentals", "2023"),
-    ("🏅", "AWS Cloud Practitioner", "2024"),
+    ("🏅", "Microsoft Power BI Associate", "2025")
 ]
 for col, (icon, name, year) in zip(cols, certs):
     with col:
