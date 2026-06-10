@@ -1,3 +1,5 @@
+import base64
+
 import streamlit as st
 
 st.set_page_config(page_title="Resume | Clyde's Portfolio", page_icon="📄", layout="wide")
@@ -18,6 +20,7 @@ html, body, [class*="css"] { font-family: 'Syne', sans-serif; background-color: 
 
 st.markdown('<p class="section-label">Career</p>', unsafe_allow_html=True)
 
+pdf_display = ''
 col1, col2 = st.columns([3, 1])
 with col1:
     st.markdown("# Resume")
@@ -30,12 +33,45 @@ with col2:
         pdf_bytes = pdf_file.read()
 
     st.download_button(
-        label="DOwnload My CV",
+        label="Download My CV",
         data=pdf_bytes,
         file_name="Mpfuno_Clyde_Bilankulu_CV.pdf",
         mime="application/pdf",
         icon="📄",
     )
+
+    # initialise state
+    if "show_cv" not in st.session_state:
+        st.session_state.show_cv = False
+
+    
+    # Toggle button
+    if st.button("📄 View CV"):
+        st.session_state.show_cv = True
+
+
+    # Close button + display
+    if st.session_state.show_cv:
+
+        col1, col2 = st.columns([7, 3])
+
+        with col2:
+            if st.button("✖ Close"):
+                st.session_state.show_cv = False
+
+        with open("./assets/Mpfuno_Clyde_Bilankulu_CV.pdf", "rb") as f:
+            base64_pdf = base64.b64encode(f.read()).decode("utf-8")
+
+        pdf_display = f"""
+        <iframe 
+            src="data:application/pdf;base64,{base64_pdf}" 
+            width="100%" 
+            height="800px"
+            style="border: none;">
+        </iframe>
+        """
+
+st.markdown(pdf_display, unsafe_allow_html=True)
 
 st.markdown("---")
 

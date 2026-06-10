@@ -147,7 +147,7 @@ st.markdown("### What would you like to see?")
 c1, c2, c3 = st.columns(3)
 with c1:
     st.markdown("""
-        <a href="pages/Projects.py" class="stButton" target="_self"  style="text-decoration:none;">
+        <a href="/projects" class="stButton" target="_self"  style="text-decoration:none;">
             <div class="stat-box stButton" style="text-align:left; padding:2rem;">
             <div style="font-size:2rem">📁</div>
             <div style="font-weight:700; margin:.5rem 0">Projects</div>
@@ -158,7 +158,7 @@ with c1:
 
 with c2:
     st.markdown("""
-    <a href="/About" class="stButton" target="_self"  style="text-decoration:none;">
+    <a href="/about" class="stButton" target="_self"  style="text-decoration:none;">
         <div class="stat-box stButton" style="text-align:left; padding:2rem;">
             <div style="font-size:2rem">👤</div>
             <div style="font-weight:700; margin:.5rem 0">About</div>
@@ -169,7 +169,7 @@ with c2:
 
 with c3:
     st.markdown("""
-    <a href="/Resume" class="stButton" target="_self"  style="text-decoration:none;">
+    <a href="/resume" class="stButton" target="_self"  style="text-decoration:none;">
         <div class="stat-box" style="text-align:left; padding:2rem;">
             <div style="font-size:2rem">📄</div>
             <div style="font-weight:700; margin:.5rem 0">Resume</div>

@@ -25,9 +25,9 @@ with col1:
 
     My experience spans **data engineering, business intelligence, cloud migrations, analytics, and business analysis**. I've worked with technologies such as **Snowflake, Google Cloud Platform (GCP), BigQuery, Power BI, Looker Studio, Python, SQL, and Azure DevOps** to deliver scalable data platforms, ETL pipelines, reporting solutions, and analytics products.
 
-    Currently, I'm helping lead an enterprise data warehouse migration to Snowflake at PSG Asset Management. Previously at Incubeta, I delivered cloud migration projects, built real-time analytics pipelines, developed business intelligence dashboards, and partnered with stakeholders to translate business requirements into technical solutions.
+    Currently, I'm helping lead an enterprise data warehouse migration at my current company. Previously at Incubeta, I delivered cloud migration projects, built real-time analytics pipelines, developed business intelligence dashboards, and partnered with stakeholders to translate business requirements into technical solutions.
 
-    Beyond my professional work, I enjoy building personal projects that combine software engineering, cloud computing, and data analytics, including cloud-native applications, automation tools, and portfolio projects deployed on Google Cloud Platform.
+    Beyond my professional work, I enjoy building personal projects that combine software engineering, cloud computing, and data analytics, including cloud-native applications, automation tools, and portfolio projects deployed on Google Cloud Platform / Azure.
 
     I'm always interested in opportunities involving **Data Engineering, Business Intelligence, Business Analysis, Cloud Engineering, and Software Development**.
     """)
@@ -55,27 +55,19 @@ with col2:
 
     st.markdown("""
     <div style="font-family:'Space Mono',monospace; font-size:0.9rem; line-height:2.2; color:#888;">
-    
+
     📧 clydebilam@gmail.com<br>
-
-    📱 +27 69 319 0696<br>
-
-    🌍 Cape Town, South Africa<br>
-
-    💼 Open to Data Engineering, BI, BA & Software Engineering Opportunities<br>
-
     🔗 <a href="https://www.linkedin.com/in/mpfuno-clyde-bilankulu" target="_blank">
     LinkedIn
     </a><br>
-
     🖥️ <a href="https://github.com/BilankuluClyde" target="_blank">
     GitHub
     </a><br>
-
-    🚀 <a href="https://mpfuno-clyde-bilankulu.app" target="_blank">
+    🚀 <a href="https://clydeporfolio-1071943451851.africa-south1.run.app" target="_blank">
     Portfolio Website
     </a>
-
+    <br>🌍 Cape Town, South Africa<br>
+    💼 Open to Data Engineering, BI, BA & Software Engineering Opportunities<br>
     </div>
     """, unsafe_allow_html=True)
 st.divider()
@@ -88,14 +80,16 @@ st.markdown("<br>", unsafe_allow_html=True)
 skills = {
     "SQL": 95,
     "Python": 90,
+    "Java": 70,
+    "C#": 70,
     "Power BI": 90,
     "Google BigQuery": 90,
-    "Google Cloud Platform": 85,
+    "Google Cloud Platform": 65,
     "Snowflake": 85,
-    "Looker Studio": 85,
+    "Looker Studio": 95,
     "Data Warehousing": 85,
     "ETL / ELT": 85,
-    "Azure DevOps": 80,
+    "Azure DevOps": 70,
     "Git & CI/CD": 80,
     "Business Analysis": 80,
     "Streamlit": 80,
@@ -122,7 +116,6 @@ for i, (skill, pct) in enumerate(items):
         </div>
         """, unsafe_allow_html=True)
 
-st.divider()
 
 st.divider()
 
@@ -163,5 +156,5 @@ for col, (icon, title, desc) in zip(cols, hobbies):
             <div style="font-size:2.5rem">{icon}</div>
             <div style="font-weight:700; margin:.6rem 0 .4rem">{title}</div>
             <div style="color:#666; font-size:0.85rem">{desc}</div>
-        </div>
+        </div><br>
         """, unsafe_allow_html=True)

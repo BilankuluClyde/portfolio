@@ -36,7 +36,7 @@ st.markdown('<p style="color:#666; font-family:\'Space Mono\',monospace; font-si
 st.markdown("<br>", unsafe_allow_html=True)
 
 # ── Filter bar ───────────────────────────────────────────────────────────────
-all_tags = ["All", "Python", "SQL", "BigQuery", "GCP", "Streamlit", "Automation", "Data Engineering"]
+all_tags = ["All", "Bash", "CI/CD", "Python", "SQL", "BigQuery", "JavaScript", "GCP", "Git", "Snowflake", "Streamlit", "Automation", "Data Engineering"]
 selected = st.selectbox("Filter by tech", all_tags, label_visibility="collapsed")
 
 st.markdown("---")
@@ -46,27 +46,43 @@ projects = [
     {
         "title": "Portfolio Dashboard",
         "desc": "This very site — a multi-page Streamlit app showcasing projects, skills, and resume. Deployed on Streamlit Community Cloud.",
-        "tags": ["Python", "Streamlit"],
-        "github": "https://github.com/YOUR_USERNAME/portfolio",
+        "tags": ["Python", "Streamlit", "Git", "CI/CD", "GCP"],
+        "github": "https://github.com/BilankuluClyde/portfolio/tree/main",
         "status": "live",
         "highlight": True,
+        "app": False,
+        "link": "https://bilankuluclyde.github.io/"
     },
     {
-        "title": "GitHub Repo Tracker",
-        "desc": "Pulls repo metadata from the GitHub API and stores it in BigQuery for trend analysis across languages, stars, and commit activity.",
-        "tags": ["Python", "BigQuery", "GCP", "SQL"],
-        "github": "https://github.com/YOUR_USERNAME/repo-tracker",
-        "status": "live",
-        "highlight": False,
-    },
-    {
-        "title": "Sales Pipeline Automation",
-        "desc": "End-to-end ETL pipeline that ingests CRM exports, transforms them with dbt, and surfaces KPIs in a Looker Studio dashboard.",
-        "tags": ["SQL", "BigQuery", "Automation", "Data Engineering"],
-        "github": "https://github.com/YOUR_USERNAME/sales-pipeline",
+        "title": "Fin Free",
+        "desc": "A Budgeting app that allows users to upload their till slips, bank statements and Budget plans in order to guage their financial standing and calculate a financial freedom plan.",
+        "tags": ["Python", "JavaScript", "BigQuery", "GCP", "SQL"],
+        "github": "https://github.com/BilankuluClyde/FinFree_dev",
         "status": "wip",
         "highlight": False,
+        "app": False,
+        "link": "https://bilankuluclyde.github.io/"
     },
+    {
+        "title": "Sequence Healer",
+        "desc": "Snowflake Sequence/Primary key monitoring tool. Checks for duplicate keys and removes/heals all tables with duplicate keys to ensure unique tables within a DB",
+        "tags": ["SQL", "Snowflake", "Automation", "Data Engineering", "Streamlit", "Bash", "Python"],
+        "github": "https://github.com/BilankuluClyde/Sequence_healer",
+        "status": "wip",
+        "highlight": False,
+        "app": False,
+        "link": "https://bilankuluclyde.github.io/"
+    },
+    {
+        "title": "Valentines Card",
+        "desc": "A playfull JavaScript snippet showcasing my understanding of Javascript to create interactive animations",
+        "tags": ["JavaScript"],
+        "github": "https://github.com/BilankuluClyde/BilankuluClyde.github.io",
+        "status": "wip",
+        "highlight": False,
+        "app": True,
+        "link": "https://bilankuluclyde.github.io/"
+    }
     # ── Add your real projects below this line ───────────────────────────────
 ]
 
@@ -90,4 +106,6 @@ for proj in projects:
     </div>
     """, unsafe_allow_html=True)
     st.link_button(f"View {proj['title']} on GitHub ↗", proj["github"])
+    if proj.get("app"):
+        st.link_button("🌐 View Live App ↗", proj["link"])
     st.markdown("<br>", unsafe_allow_html=True)
